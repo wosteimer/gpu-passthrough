@@ -9,8 +9,9 @@ function limiting_host_cpus(){
 }
 
 function unbind_vtconsoles(){
-    echo 0 > /sys/class/vtconsole/vtcon0/bind
-    echo 0 > /sys/class/vtconsole/vtcon1/bind
+    for vt in /sys/class/vtconsole/vtcon*; do
+        echo 0 > $vt
+    done
 }
 
 function unload_nvidia_drivers(){

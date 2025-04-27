@@ -20,8 +20,9 @@ function load_nvidia_drivers(){
 }
 
 function rebind_vtconsoles(){
-    echo 1 > /sys/class/vtconsole/vtcon0/bind
-    echo 1 > /sys/class/vtconsole/vtcon1/bind
+    for vt in /sys/class/vtconsole/vtcon*; do
+        echo 1 > $vt    
+    done
 }
 
 function main(){
