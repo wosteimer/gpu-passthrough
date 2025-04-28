@@ -10,7 +10,7 @@ function limiting_host_cpus(){
 
 function unbind_vtconsoles(){
     for vt in /sys/class/vtconsole/vtcon*; do
-        echo 0 > $vt
+        echo 0 > ${vt}/bind
     done
 }
 

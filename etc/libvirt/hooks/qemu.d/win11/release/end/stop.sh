@@ -21,7 +21,7 @@ function load_nvidia_drivers(){
 
 function rebind_vtconsoles(){
     for vt in /sys/class/vtconsole/vtcon*; do
-        echo 1 > $vt    
+        echo 1 > ${vt}/bind
     done
 }
 
